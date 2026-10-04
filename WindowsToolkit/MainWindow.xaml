@@ -1,0 +1,232 @@
+﻿<Window x:Class="WindowsToolkit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowsToolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="620" Width="800">
+    <Window.Resources>
+
+        <!-- Estilo dos botões comuns -->
+        <Style x:Key="BotaoPadraoStyle" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource CorBotao}"/>
+            <Setter Property="Foreground" Value="{DynamicResource CorTextoPrincipal}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border
+                        x:Name="BordaBotao"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+
+                            <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Background"
+                                Value="{DynamicResource CorBotaoHover}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Background"
+                                Value="{DynamicResource CorBotao}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Opacity"
+                                Value="0.5"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo do botão de limpeza completa -->
+        <Style x:Key="BotaoLimpezaCompletaStyle" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource CorBotao}"/>
+            <Setter Property="Foreground" Value="{DynamicResource CorTextoPrincipal}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border
+                        x:Name="BordaBotao"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+
+                            <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Background"
+                                Value="{DynamicResource CorBotaoHover}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Background"
+                                Value="{DynamicResource CorBotao}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter
+                                TargetName="BordaBotao"
+                                Property="Opacity"
+                                Value="0.5"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+
+    <Grid Background="{DynamicResource CorFundoPrincipal}">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="{DynamicResource CorMenuLateral}">
+
+            <StackPanel Margin="15">
+
+                <TextBlock
+                    Text="Windows Toolkit"
+                    FontSize="21"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource CorTextoPrincipal}"
+                    Margin="0,0,0,30"/>
+
+                <Button Content="🧹 Limpeza"
+                        Style="{StaticResource BotaoPadraoStyle}"
+                        Margin="0,5"
+                        Height="40"
+                        Click="BotaoLimpeza_Click"/>
+
+                <Button 
+                        Content="🌐 Rede"
+                        Style="{StaticResource BotaoPadraoStyle}"
+                        Margin="0,5"
+                        Height="40"
+                        Click="BotaoRede_Click"/>
+
+                
+                <Button
+                        Content="🖨 Impressoras"
+                        Style="{StaticResource BotaoPadraoStyle}"
+                        Margin="0,5"
+                        Height="40"
+                        Click="BotaoImpressoras_Click"/>
+
+                <Button Content="⚙ Sistemas"
+                        Style="{StaticResource BotaoPadraoStyle}"
+                        Margin="0,5"
+                        Height="40"
+                        Click="BotaoSistemas_Click"/>
+
+                <Button
+                    Content="📄 Office"
+                    Style="{StaticResource BotaoPadraoStyle}"
+                    Margin="0,5"
+                    Height="40"
+                    Click="BotaoOffice_Click"/>
+                <Button
+                    Content="Alterar senha"
+                    Style="{StaticResource BotaoTemaStyle}"
+                    Margin="0,5"
+                    Height="40"
+                    Click="AlterarSenha_Click"/>
+
+
+                <Button Content="i Sobre"
+                        Style="{StaticResource BotaoPadraoStyle}"
+                        Margin="0,5"
+                        Height="40"
+                        Click="BotaoSobre_Click"/>
+
+                <TextBlock
+                    x:Name="TempoInatividadeText"
+                    Text="Logout em 60s"
+                    Margin="0,15,0,5"
+                    HorizontalAlignment="Center"
+                    Foreground="{DynamicResource CorTextoSecundario}"
+                    FontSize="13"/>
+
+                <Button
+                    Width="34"
+                    Height="34"
+                    Margin="16,18,0,0"
+                    HorizontalAlignment="Left"
+                    Background="{DynamicResource CorDestaque}"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    ToolTip="Alterar cor de destaque"
+                    Click="BotaoEscolherCor_Click">
+
+                    
+
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+
+                            <Border
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="17"/>
+
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+
+            </StackPanel>
+        </Border>
+
+        <Frame
+            x:Name="FramePrincipal"
+            Grid.Column="1"
+            NavigationUIVisibility="Hidden"
+            Background="{DynamicResource CorFundoPrincipal}"/>
+
+
+    </Grid>
+</Window>

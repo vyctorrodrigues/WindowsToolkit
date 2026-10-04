@@ -1,0 +1,193 @@
+﻿<Window x:Class="WindowsToolkit.Views.AdicionarImpressoraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Adicionar impressora"
+        Height="430"
+        Width="560"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="#202124">
+
+    <Grid Margin="25">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Text="Adicionar impressora"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Margin="0,0,0,20"/>
+
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            Margin="0,0,0,20">
+
+            <RadioButton
+                x:Name="OpcaoRede"
+                Content="Rede compartilhada"
+                Foreground="White"
+                FontSize="15"
+                IsChecked="True"
+                Margin="0,0,25,0"
+                Checked="OpcaoInstalacao_Checked"/>
+
+            <RadioButton
+                x:Name="OpcaoUsb"
+                Content="Cabo / USB"
+                Foreground="White"
+                FontSize="15"
+                Checked="OpcaoInstalacao_Checked"/>
+
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+
+            <!-- REDE -->
+            <StackPanel
+                x:Name="PainelRede">
+
+                <TextBlock
+                    Text="Caminho da impressora compartilhada:"
+                    Foreground="#CCCCCC"
+                    Margin="0,0,0,6"/>
+
+                <TextBox
+                    x:Name="CampoCaminhoRede"
+                    Height="38"
+                    Padding="8"
+                    Text="\\SERVIDOR\IMPRESSORA"/>
+
+                <CheckBox
+                    x:Name="OpcaoDefinirPadraoRede"
+                    Content="Definir como impressora padrão"
+                    Foreground="White"
+                    Margin="0,18,0,8"/>
+
+                <CheckBox
+                    x:Name="OpcaoMapearLpt"
+                    Content="Mapear para porta LPT"
+                    Foreground="White"
+                    Margin="0,0,0,8"
+                    Checked="OpcaoMapearLpt_Changed"
+                    Unchecked="OpcaoMapearLpt_Changed"/>
+
+                <StackPanel
+                    x:Name="PainelLpt"
+                    Visibility="Collapsed"
+                    Margin="20,0,0,0">
+
+                    <TextBlock
+                        Text="Porta LPT:"
+                        Foreground="#CCCCCC"
+                        Margin="0,0,0,5"/>
+
+                    <ComboBox
+                        x:Name="ComboPortaLpt"
+                        Width="140"
+                        Height="35"
+                        HorizontalAlignment="Left"
+                        SelectedIndex="0">      
+
+                        <ComboBoxItem Content="LPT1"/>
+                        <ComboBoxItem Content="LPT2"/>
+                        <ComboBoxItem Content="LPT3"/>
+                    </ComboBox>
+
+                    <CheckBox
+                        x:Name="OpcaoPersistente"
+                        Content="Manter mapeamento após reiniciar"
+                        Foreground="White"
+                        IsChecked="True"
+                        Margin="0,10,0,0"/>
+
+                </StackPanel>
+
+                <CheckBox
+                    x:Name="OpcaoTesteRede"
+                    Content="Imprimir página de teste após instalar"
+                    Foreground="White"
+                    Margin="0,12,0,0"/>
+
+            </StackPanel>
+
+            <!-- USB -->
+            <StackPanel
+                x:Name="PainelUsb"
+                Visibility="Collapsed">
+
+                <TextBlock
+                    Text="Nome que será exibido:"
+                    Foreground="#CCCCCC"
+                    Margin="0,0,0,6"/>
+
+                <TextBox
+                    x:Name="CampoNomeImpressora"
+                    Height="38"
+                    Padding="8"
+                    Margin="0,0,0,14"/>
+
+                <TextBlock
+                    Text="Driver instalado:"
+                    Foreground="#CCCCCC"
+                    Margin="0,0,0,6"/>
+
+                <ComboBox
+                    x:Name="ComboDrivers"
+                    Height="38"
+                    Margin="0,0,0,14"/>
+
+                <TextBlock
+                    Text="Porta:"
+                    Foreground="#CCCCCC"
+                    Margin="0,0,0,6"/>
+
+                <ComboBox
+                    x:Name="ComboPortas"
+                    Height="38"/>
+
+                <CheckBox
+                    x:Name="OpcaoDefinirPadraoUsb"
+                    Content="Definir como impressora padrão"
+                    Foreground="White"
+                    Margin="0,18,0,8"/>
+
+                <CheckBox
+                    x:Name="OpcaoTesteUsb"
+                    Content="Imprimir página de teste após instalar"
+                    Foreground="White"/>    
+
+            </StackPanel>
+
+        </Grid>
+
+        <StackPanel
+            Grid.Row="3"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Margin="0,20,0,0">
+
+            <Button
+                Content="Cancelar"
+                Width="105"
+                Height="38"
+                Margin="0,0,10,0"
+                Click="BotaoCancelar_Click"/>
+
+            <Button
+                Content="Adicionar"
+                Width="105"
+                Height="38"
+                Click="BotaoAdicionar_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

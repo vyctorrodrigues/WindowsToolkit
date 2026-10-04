@@ -1,0 +1,187 @@
+﻿<Window x:Class="WindowsToolkit.Views.SelecionarTemaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Escolher tema"
+        Width="626"
+        Height="459"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{DynamicResource CorFundoPrincipal}">
+
+    <Grid Margin="25">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho -->
+        <StackPanel>
+
+            <TextBlock
+                Text="Personalização"
+                FontSize="24"
+                FontWeight="Bold"
+                Foreground="{DynamicResource CorTextoPrincipal}"/>
+
+            <TextBlock
+                Text="Escolha o tema do Windows Toolkit"
+                Margin="0,6,0,20"
+                Foreground="{DynamicResource CorTextoSecundario}"/>
+
+        </StackPanel>
+
+        <!-- Temas -->
+        <UniformGrid
+            Grid.Row="1"
+            Columns="2"
+            Rows="3">
+
+            <Button
+                Tag="Escuro"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#00BCD4"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Escuro"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button
+                Tag="Azul"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#38BDF8"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Azul"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button
+                Tag="Roxo"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#C084FC"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Roxo"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button
+                Tag="Verde"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#4ADE80"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Verde"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button
+                Tag="Vermelho"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#F87171"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Vermelho"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button
+                Tag="Amarelo"
+                Click="BotaoTema_Click"
+                Style="{StaticResource BotaoTemaStyle}">
+
+                <StackPanel>
+
+                    <Ellipse
+                        Width="22"
+                        Height="22"
+                        Fill="#FACC15"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7"/>
+
+                    <TextBlock
+                        Text="Amarelo"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+
+        </UniformGrid>
+
+        <!-- Rodapé -->
+        <Button
+            Grid.Row="2"
+            Content="Fechar"
+            Width="110"
+            Height="38"
+            HorizontalAlignment="Right"
+            Margin="0,20,0,0"
+            Click="BotaoFechar_Click"
+            Style="{StaticResource BotaoTemaStyle}"/>
+
+    </Grid>
+</Window>
